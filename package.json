@@ -1,3 +1,4 @@
+{
 "scripts": {
   "compile": "webpack -w",
   "start": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js"
@@ -48,3 +49,4 @@
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2"
   }
+}
