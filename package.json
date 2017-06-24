@@ -47,4 +47,4 @@
     "url-loader": "^0.5.9",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2"
-  },
+  }
