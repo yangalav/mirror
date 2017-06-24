@@ -1,11 +1,10 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const passport = require('passport');
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import passport from 'passport';
 import { join, resolve } from 'path';
-require('dotenv').config();
 
 const app = express();
 
@@ -26,7 +25,7 @@ app.use(express.static(join(`${__dirname}/../build`)));
 app.use(express.static(join(`${__dirname}/../public`)));
 
 app.get('/*', (request, response) => {
-  response.sendFile(resolve(`${__dirname}/../public`, 'index.html'));
+  response.sendFile(resolve(`${__dirname}/../public/index.html`));
 });
 
 let port = process.env.PORT || 3000;
