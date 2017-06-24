@@ -4,6 +4,9 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+import { join, resolve } from 'path';
+require('dotenv').config();
+
 const app = express();
 
 app.use(morgan('dev'));
@@ -19,9 +22,14 @@ app.use(session({
   saveUninitialized: true
 }));
 
-let port = process.env.PORT || 6666;
+app.use(express.static(join(`${__dirname}/../build`)));
+app.use(express.static(join(`${__dirname}/../public`)));
+
+app.get('/*', (request, response) => {
+  response.sendFile(resolve(`${__dirname}/../public`, 'index.html'));
+});
+
+let port = process.env.PORT || 3000;
 app.listen(port,(err) => {
   console.log("Listening on port " + port);
 });
-
-module.exports = app;
